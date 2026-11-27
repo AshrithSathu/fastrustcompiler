@@ -1,0 +1,5 @@
+src-build/
+bench/work/
+bench/target*/
+*.profraw
+*.profdata

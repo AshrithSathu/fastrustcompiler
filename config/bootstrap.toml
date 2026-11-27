@@ -1,0 +1,31 @@
+# Tuned rustc build for Apple M1 (aarch64-apple-darwin).
+# Baseline = official dist: thin LTO, codegen-units=1, jemalloc, no PGO, parallel frontend = 1 thread.
+change-id = "ignore"
+profile = "dist"
+
+[build]
+build = "aarch64-apple-darwin"
+host = ["aarch64-apple-darwin"]
+target = ["aarch64-apple-darwin"]
+docs = false
+extended = false
+tools = []
+allocator = "jemalloc"
+jobs = 6
+
+[llvm]
+download-ci-llvm = true
+link-shared = true
+
+[rust]
+channel = "nightly"
+lto = "thin"
+codegen-units = 1
+codegen-units-std = 1
+debug = false
+debuginfo-level = 0
+debug-assertions = false
+debug-assertions-std = false
+overflow-checks = false
+incremental = false
+# PGO: set by the build script per phase (profile-generate / profile-use).

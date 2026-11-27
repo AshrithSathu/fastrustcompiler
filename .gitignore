@@ -3,3 +3,5 @@ bench/work/
 bench/target*/
 *.profraw
 *.profdata
+bench/kitchen-sink/target/
+bench/kitchen-sink/Cargo.lock
